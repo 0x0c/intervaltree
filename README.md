@@ -13,13 +13,13 @@ Add `#include "IntervalTree.h"` to the source files in which you will use the in
 To make an IntervalTree to contain objects of class T, use:
 
 ```c++
-vector<Interval<T> > intervals;
+vector<Interval<int, T> > intervals;
 T a, b, c;
-intervals.push_back(Interval<T>(2, 10, a));
-intervals.push_back(Interval<T>(3, 4, b));
-intervals.push_back(Interval<T>(20, 100, c));
-IntervalTree<T> tree;
-tree = IntervalTree<T>(intervals);
+intervals.push_back(Interval<int, T>(2, 10, a));
+intervals.push_back(Interval<int, T>(3, 4, b));
+intervals.push_back(Interval<int, T>(20, 100, c));
+IntervalTree<int, T> tree;
+tree = IntervalTree<int, T>(std::move(intervals));
 ```
 
 Now, it's possible to query the tree and obtain a set of intervals which are contained within the start and stop coordinates.
